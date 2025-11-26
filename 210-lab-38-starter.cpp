@@ -58,8 +58,6 @@ int main() {
         }
     }
 
-
-
     codesTree.displayInOrder();
 
     return 0;
@@ -72,4 +70,70 @@ void menu() {
     cout << "3. Search for a code\n";
     cout << "4. Modify a code\n";
     cout << "5. Exit\n";
+}
+
+void addRecord(StringBinaryTree &tree) {
+    string code;
+    cout << "Enter the new code you wish to add: ";
+    cin >> code;
+
+    if(tree.searchNode(code)) {
+        cout << "This code already exists!\n";
+    }
+    else {
+        tree.insertNode(code);
+        cout << code << " has been succefully added.\n";
+    }
+}
+
+void deleteRecord(StringBinaryTree &tree){ 
+    string code;
+    cout << "Enter the code you wish to delete: ";
+    cin >> code;
+
+    if(!tree.searchNode(code)) {
+        cout << "This code does not exist!\n";
+    }
+    else {
+        tree.remove(code);
+        cout << code << " has been succefully deleted.\n";
+    }
+}
+
+void searchRecord(StringBinaryTree &tree){ 
+    string code;
+    cout << "Enter the code you wish to find: ";
+    cin >> code;
+
+    if(tree.searchNode(code)) {
+        cout << code << " exists in the tree!\n";
+    }
+    else {
+        cout << code << " does not exist in the tree.\n";
+    }
+}
+
+void modifyRecord(StringBinaryTree &tree){ 
+    string originalCode;
+    string newCode;
+
+    cout << "Enter the code you wish to modify: ";
+    cin >> originalCode;
+
+    if (!tree.searchNode(originalCode)) {
+        cout << "Original code not found within the tree.\n";
+        return;
+    }
+
+    cout << "Enter the modified code: ";
+    cin >> newCode;
+
+    if (tree.searchNode(newCode)) {
+        cout << "Modified code already exists elsewhere. Cannot modify.\n";
+        return;
+    }
+    
+    tree.remove(originalCode);
+    tree.insertNode(newCode);
+    cout << "Code successfully modified from " << originalCode << " to " << newCode << ".\n";
 }

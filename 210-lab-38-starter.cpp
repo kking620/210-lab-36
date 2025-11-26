@@ -5,12 +5,12 @@
 using namespace std;
 
 int main() {
-    IntBinaryTree tree;
+    StringBinaryTree tree;
 
-    tree.insertNode(50);
-    tree.insertNode(100);
+    tree.insertNode("50");
+    tree.insertNode("100");
     
-    cout << "Code set up using the provided files successfully!\n";
+    cout << "Code has been changed to implement string instead of int succesfully!\n";
 
     return 0;
 }

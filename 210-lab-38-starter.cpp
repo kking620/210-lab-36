@@ -4,6 +4,12 @@
 #include "IntBinaryTree.h"
 using namespace std;
 
+void menu();
+void addRecord(StringBinaryTree &tree);
+void deleteRecord(StringBinaryTree &tree);
+void searchRecord(StringBinaryTree &tree);
+void modifyRecord(StringBinaryTree &tree);
+
 int main() {
     StringBinaryTree codesTree;
     string code;

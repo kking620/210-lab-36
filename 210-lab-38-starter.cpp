@@ -5,12 +5,22 @@
 using namespace std;
 
 int main() {
-    StringBinaryTree tree;
-
-    tree.insertNode("50");
-    tree.insertNode("100");
+    StringBinaryTree codesTree;
+    string code;
     
-    cout << "Code has been changed to implement string instead of int succesfully!\n";
+    ifstream inputFile("codes.txt");
+    if(!inputFile) {
+        cout << "Could not open the designated file\n";
+    }
+    else {
+        while(inputFile >> code) {
+            codesTree.insertNode(code);
+        }
+    }
+
+    inputFile.close();
+
+    codesTree.displayInOrder();
 
     return 0;
 }
